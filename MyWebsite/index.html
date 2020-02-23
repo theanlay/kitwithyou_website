@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ehean lain </title>
-	<link rel="icon" type="image/X-icon" href="logo/hnet.com-image.ico">
-	<style type="text/css">
+	<title> Ehean lain </title>
+	<link rel = "icon" type = "image/X-icon" href = "logo/hnet.com-image.ico">
+	<style type = "text/css">
 		.main{
 			font-size: 25px;
 			color: rgb(0, 185, 255);
@@ -14,22 +14,20 @@
 			border:none;
 			background-color: rgb(2,24,123);
 		}
-		h1{
-			text-align: center;
-			color: rgb(247, 185, 112);
-		}
 		body{
-			background:black;
+			background-image: url(https://cdn.pixabay.com/photo/2017/03/29/11/29/nepal-2184940_960_720.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
 		}
-		.clorgld{
+        .clorgld {
+            color: rgb(247, 185, 112);
+        }
 
-			color: rgb(247, 185, 112);
-		}
-		.historywebsite{
-			color: rgb(247, 185, 112);
-			height: 40px
-
-		}
+        .historywebsite {
+            color: rgb(247, 185, 112);
+            height: 40px
+        }
 		.top_1{
 			height: 40px;
 			color: white;
@@ -37,22 +35,185 @@
 		.caption_1{
 			text-align: justify;
 		}
+/*This is start of css to make the 3D Flip Box */
+		flip-box {
+  background-color: transparent;
+
+  width: 200px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 200px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+/*This is the end css to make the 3D Flip Box */
+
+
+
+
+		}
+
+
 	</style>
+	<script>
+	<!--This is the start of the Javascript that make the animation replace text on the dispaly-->
+	var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
+<!--This is the end of the replce the text of the project that we dispaly on -->
+
+	</script>
 </head>
 <body>
-	
-	<div class="top_1" style="height: 10px;"></div>
-	<img src="logo/KnightSmoothWhite280GSM.png" width="100px"  >
-	<pre style="margin-left: 25px;"><a class="main" href style="text-decoration: none;"="main.html">Home</a>	<a class="main" style="text-decoration: none;" href="makeform.html">Sign up</a>		<a class="main" style="text-decoration: none;" href="Books.html">Books</a>		<a class="main" style="text-decoration: none;" href="video.html">Videos</a>		<a class="main" style="text-decoration: none;" href="bloge.html">Blog</a>			</pre>
-	<hr >
 
-	<h1> We come to <i>Theanlay</i> website</h1>
-	
-	<p class="clorgld" class="caption_1">Hello welcome to Theanlay website you can find anything in here. in this website we have sign up, Book, Photo, videos, bloge. for the future we will have more funtion to increate what you need. </p>
-	<p class="historywebsite" align="right" > <font face="AKbalthom HighSchool-Frame"></font> History of creater website</p>
-	<p class="clorgld" align="right">Mr Thorn Theanlay was born july 04 2001 in Cambodia </p>
-	<p class="clorgld" align="right">THORN THEANLAY</p>
+	<div class = "top_1" style = "height: 10px;"></div>
+	<img src = "logo/KnightSmoothWhite280GSM.png" width ="100px"  >
+	<pre style = "margin-left: 25px;"><a class = "main" href style = "text-decoration: none;" = "main.html"  >Home</a>	<a class = "main" style = "text-decoration: none;" href = "makeform.html">Sign up</a>		<a class = "main" style = "text-decoration: none;" href = "Books.html">Books</a>		<a class = "main" style = "text-decoration: none;" href="video.html">Videos</a>		<a class = "main" style = "text-decoration: none;" href = "bloge.html">Blog</a>			</pre>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" /> <!--This is a font replace that we will radomlly the text in the data-ratation-->
+<h1>We come to
+  <span
+     class="txt-rotate"
+     data-period="2000"
+     data-rotate='[ "Thorn Theanlay.", "website." , "Thorn Theanlay website." ]'></span>
+</h1>
+
+	<!--This is the start body of the webste that we want to make the 3D flip box -->
+	<div >
+		<div style="width:100px; height:100px;">
+			<div class="flip-box" >
+		  <div class="flip-box-inner">
+		    <div class="flip-box-front" >
+		      <img src="Book\cover_book\How_to_be_a_Genius.PNG" style="width:200px; height:200px;">
+
+		    </div>
+		    <div class="flip-box-back">
+		      <img src="Book\cover_book\How_to_be_a_Genius_back.PNG" style="width:200px; height:200px;">
+		    </div>
+		  </div>
+		</div>
+		</div>
+		<div style="margin:200px;">This is a good website</div>
+
+
+	</div>
+
+
+	<!-- This is the end of the body the website that we want to make the 3D flip box-->
+
+
+	<p class = "clorgld" class = "caption_1">Hello welcome to Theanlay website you can find anything in here. in this website we have sign up, Book, Photo, videos, bloge. for the future we will have more funtion to increate what you need. </p>
+	<p class = "historywebsite" align = "right" > <font face = "AKbalthom HighSchool-Frame"></font> History of creater website</p>
+	<p class = "clorgld" align = "right">Mr Thorn Theanlay was born july 04 2001 in Cambodia </p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+
+	<div class = "make_button_fix">
+			<div class = "button_bar">
+					<div class = "button_bar_inside"><img src="logo/icons8_facebook_circled_32.png"></div>
+					<div class = "button_bar_inside"><img src="logo/icons8_telegram_app_32.png"></div>
+					<div class = "button_bar_inside"><img src="logo/icons8_skype_32.png"></div>
+					<div class = "button_bar_inside"><img src="logo/icons8_instagram_new_32.png"></div>
+					<div class = "button_bar_inside"><img src="logo/icons8_youtube_play_32.png"></div>
+			</div>
+			<div class = "sub_button_bar">
+					<div style = "text-align: end; color: rgb(255, 255, 255);margin: 40px;">Copyright © 2019 TTL. The TTL is not responsible for the content of external sites. Read about our approach to external linking.</div>
+			</div>
+
+	</div>
+
 
 
 </body>
-</html>``		
+</html>
