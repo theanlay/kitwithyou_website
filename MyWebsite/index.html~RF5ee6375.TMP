@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Ehean lain </title>
+	<link rel = "icon" type = "image/X-icon" href = "logo/hnet.com-image.ico">
+	<style type = "text/css">
+		.main{
+			font-size: 25px;
+			color: rgb(0, 185, 255);
+		}
+		hr{
+
+			height: 4px;
+			border:none;
+			background-color: rgb(2,24,123);
+		}
+		h1{
+			text-align: center;
+			color: rgb(247, 185, 112);
+		}
+		body{
+			background:black;
+		}
+		.clorgld{
+
+			color: rgb(247, 185, 112);
+		}
+		.historywebsite{
+			color: rgb(247, 185, 112);
+			height: 40px
+
+		}
+		.top_1{
+			height: 40px;
+			color: white;
+		}
+		.caption_1{
+			text-align: justify;
+		}
+	</style>
+</head>
+<body>
+
+	<div class = "top_1" style = "height: 10px;"></div>
+	<img src = "logo/KnightSmoothWhite280GSM.png" width ="100px"  >
+	<pre style = "margin-left: 25px;"><a class = "main" href style = "text-decoration: none;" = "main.html">Home</a>	<a class = "main" style = "text-decoration: none;" href = "makeform.html">Sign up</a>		<a class = "main" style = "text-decoration: none;" href = "Books.html">Books</a>		<a class = "main" style = "text-decoration: none;" href="video.html">Videos</a>		<a class = "main" style = "text-decoration: none;" href = "bloge.html">Blog</a>			</pre>
+	<hr >
+	<h1> We come to <i> Theanlay </i> website</h1>
+
+	<p class = "clorgld" class = "caption_1">Hello welcome to Theanlay website you can find anything in here. in this website we have sign up, Book, Photo, videos, bloge. for the future we will have more funtion to increate what you need. </p>
+	<p class = "historywebsite" align = "right" > <font face = "AKbalthom HighSchool-Frame"></font> History of creater website</p>
+	<p class = "clorgld" align = "right">Mr Thorn Theanlay was born july 04 2001 in Cambodia </p>
+	<p class = "clorgld" align = "right">THORN THEANLAY</p>
+	<img src = "https://c7.uihere.com/files/639/681/110/angle-black-and-white-point-pattern-water-vapor-smoke-vector-thumb.jpg">
+
+
+</body>
+</html>
